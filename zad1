@@ -1,0 +1,37 @@
+'''Pamiętnik
+Stwórz klasę Pamiętnik, która zaimplementuje metody do odczytywania 
+i dopisywania zawartości. Zawartość będzie przechowywana w pliku tekstowym.'''
+
+
+
+from datetime import date, datetime
+
+
+class Pamietnik:
+
+    def add_entry(self, entry_date: date, entry: str):
+        with open('Pamietnik.txt', 'a') as file:
+            file.write(f'{entry_date} - {entry} \n')
+
+    def show_entries(self):
+        with open('Pamietnik.txt') as file:
+            for line in file:
+                print(line.strip())
+
+    def run(self):
+        while True:
+            activity = input('Co chcesz zrobić? D - dodaj wpis, O - odczytaj zawartość, Q - wyjdź ')
+            if activity in ('D', 'd'):
+                entry_date = (datetime.strptime(input('Podaj datę wpisu w formacie: dd.mm.rrrr '), '%d.%m.%Y')).date()
+                entry = input('Wpisz to co chcesz ')
+                pamietnik.add_entry(entry_date, entry)
+            elif activity in ('o', 'O', '0'):
+                pamietnik.show_entries()
+            else:
+                if activity in ('q', 'Q'):
+                    break
+
+
+if __name__ == '__main__':
+    pamietnik = Pamietnik()
+    pamietnik.run()
