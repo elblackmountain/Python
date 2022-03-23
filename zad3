@@ -1,0 +1,23 @@
+Zadanie 3 - Piosenka
+Stwórz klasę przyjmującą w konstruktorze listę będącą kolejnymi wierszami piosenki. 
+Klasa będzie mieć metodę spiewaj, która wypisze wszystkie wiersze piosenki po kolei.
+
+
+#przerobienie tekstu piosenki na listę:
+with open ('piosenka.txt', encoding = 'utf8') as file:
+    piosenka = []
+    for line in file:
+        piosenka.append(line.strip())
+
+
+class Song:
+    def __init__(self, list_of_lines: list):
+        self.list_of_lines = list_of_lines
+
+    def sing(self):
+        for element in self.list_of_lines:
+            print(element)
+        return ' '    #dodałam to by mi nie wypisywał None pod tekstem piosenki - czy to ma sens?
+
+song = Song(piosenka)
+print(song.sing())
