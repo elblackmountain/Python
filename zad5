@@ -1,0 +1,18 @@
+Zadanie 5 - Długość linii prostej
+Stwórz klasę reprezentującą linię prostą, która przyjmuje 
+w konstruktorze współrzędne obu końców w układzie współrzędnych XY. 
+Klasa implementuje metodę obliczającą długość linii
+
+
+class Line:
+    def __init__(self, wsp1_a, wsp1_b, wsp2_a, wsp2_b):
+        self.wsp2_b = wsp2_b
+        self.wsp2_a = wsp2_a
+        self.wsp1_b = wsp1_b
+        self.wsp1_a = wsp1_a
+
+    def calculate_lenght(self):
+        return ((self.wsp2_a - self.wsp1_a)**2 + (self.wsp2_b - self.wsp1_b)**2)**0.5
+
+line = Line(3,-1,7,2)
+print(line.calculate_lenght())
